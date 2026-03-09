@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AspireBlue - Career Guidance Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <h1>AspireBlue</h1>
+          <p>Career & Confidence Hub</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-link active" data-target="dashboard">Dashboard</button>
+        <button class="nav-link" data-target="courses">Courses</button>
+        <button class="nav-link" data-target="dreams">Dream</button>
+        <button class="nav-link" data-target="quiz">Self Assessment</button>
+        <button class="nav-link" data-target="skills">Skills</button>
+        <button class="nav-link" data-target="resume">Resume Builder</button>
+        <button class="nav-link" data-target="english">FluentRise English</button>
+        <button class="nav-link" data-target="confidence">BoostUpConfidence</button>
+      </nav>
+    </aside>
+
+    <main class="main-area">
+      <!-- LOGIN / REGISTER -->
+      <section class="auth-screen" id="authScreen">
+        <div class="auth-card glass-card">
+          <div class="auth-copy">
+            <span class="badge">Student Growth Platform</span>
+            <h2>Welcome to AspireBlue</h2>
+            <p>
+              A cyan-blue student career guidance website with dashboard, courses,
+              dream careers, self-assessment quiz, skills, resume builder,
+              English improvement, and confidence support.
+            </p>
+            <div class="auth-points">
+              <div>✔ Career guidance</div>
+              <div>✔ Self assessment</div>
+              <div>✔ Resume builder</div>
+              <div>✔ Confidence booster</div>
+            </div>
+          </div>
+
+          <div class="auth-form-wrap">
+            <div class="tabs">
+              <button class="tab-btn active" data-auth-tab="login">Login</button>
+              <button class="tab-btn" data-auth-tab="register">Register</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+              <h3>Login</h3>
+              <label>Username</label>
+              <input type="text" id="loginUsername" placeholder="Enter username" required />
+              <label>Password</label>
+              <input type="password" id="loginPassword" placeholder="Enter password" required />
+              <button type="submit" class="primary-btn full">Enter Dashboard</button>
+              <p class="auth-note">First time user? Register first, then login anytime.</p>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+              <h3>Register</h3>
+              <label>Full Name</label>
+              <input type="text" id="registerName" placeholder="Enter full name" required />
+              <label>Username</label>
+              <input type="text" id="registerUsername" placeholder="Choose username" required />
+              <label>Password</label>
+              <input type="password" id="registerPassword" placeholder="Create password" required />
+              <button type="submit" class="primary-btn full">Create Account</button>
+              <p class="auth-note">Demo version uses localStorage in browser.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTAL -->
+      <section class="portal hidden" id="portalScreen">
+        <header class="topbar glass-card">
+          <div>
+            <h2 id="welcomeTitle">Hello Student 👋</h2>
+            <p id="welcomeSubtitle">Stay motivated. Your future starts with one clear step today.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-btn" id="mobileMenuBtn">☰</button>
+            <button class="secondary-btn" id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="dashboard">
+          <div class="hero-panel glass-card">
+            <div>
+              <span class="badge">Student Methodology</span>
+              <h2>Motivation + Consistency + Action = Growth</h2>
+              <p>
+                AspireBlue helps students understand courses, explore careers,
+                build skills, improve English, overcome fear, and move confidently toward success.
+              </p>
+              <div class="hero-actions">
+                <button class="primary-btn quick-nav" data-go="quiz">Take Self Assessment</button>
+                <button class="secondary-btn quick-nav" data-go="dreams">Explore Dream Careers</button>
+              </div>
+            </div>
+            <div class="hero-stats">
+              <div class="mini-stat"><strong>50+</strong><span>Career paths</span></div>
+              <div class="mini-stat"><strong>22</strong><span>Quiz questions</span></div>
+              <div class="mini-stat"><strong>24/7</strong><span>Motivation</span></div>
+              <div class="mini-stat"><strong>100%</strong><span>Student focus</span></div>
+            </div>
+          </div>
+
+          <div class="card-grid three">
+            <article class="glass-card info-card">
+              <h3>Today’s Motivation</h3>
+              <p id="motivationText">Small daily progress builds big dreams. Believe in your effort.</p>
+              <button class="primary-btn" id="newMotivationBtn">New Motivation</button>
+            </article>
+
+            <article class="glass-card info-card">
+              <h3>Career Readiness</h3>
+              <div class="meter"><span style="width:76%"></span></div>
+              <p>Keep improving communication, technical skills, confidence, and discipline.</p>
+            </article>
+
+            <article class="glass-card info-card">
+              <h3>Best Next Step</h3>
+              <p>Complete the self-assessment and explore the recommended career roadmap.</p>
+            </article>
+          </div>
+
+          <div class="card-grid two">
+            <article class="glass-card">
+              <h3>Study Methodology</h3>
+              <ul class="styled-list">
+                <li>Set one weekly target and divide it into daily tasks.</li>
+                <li>Study in focused blocks with short breaks.</li>
+                <li>Track strengths, weaknesses, and improvements.</li>
+                <li>Revise, practice, reflect, and repeat.</li>
+              </ul>
+            </article>
+
+            <article class="glass-card">
+              <h3>Future Preparation</h3>
+              <ul class="styled-list">
+                <li>Explore courses and career families.</li>
+                <li>Build your resume from academic projects.</li>
+                <li>Improve English and confidence.</li>
+                <li>Focus on growth, not comparison.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- COURSES -->
+        <section class="page" id="courses">
+          <div class="section-heading">
+            <h2>Courses & Streams</h2>
+            <p>Brief guidance for common academic options.</p>
+          </div>
+          <div class="card-grid three" id="coursesGrid"></div>
+        </section>
+
+        <!-- DREAM -->
+        <section class="page" id="dreams">
+          <div class="section-heading">
+            <h2>Dream Careers</h2>
+            <p>Explore ambitions, future outlook, graph, and roadmap.</p>
+          </div>
+
+          <div class="glass-card dream-controls">
+            <div class="dream-search-row">
+              <input type="text" id="careerSearch" placeholder="Type a career like Doctor, Software Engineer, Pilot, Artist..." />
+              <button class="primary-btn" id="searchCareerBtn">Show Career</button>
+            </div>
+            <p class="muted-text">Choose from the career list or type your own career.</p>
+          </div>
+
+          <div class="career-chips" id="careerChipList"></div>
+
+          <div class="card-grid two">
+            <article class="glass-card career-detail-card">
+              <div class="career-header-row">
+                <div>
+                  <span class="badge">Career Profile</span>
+                  <h3 id="careerTitle">Software Engineer</h3>
+                  <p id="careerCategory" class="muted-text">Engineering & Technical</p>
+                </div>
+                <div class="career-rating-pill" id="careerLevel">Excellent</div>
+              </div>
+
+              <p id="careerDescription">
+                Builds software products, websites, apps, and digital systems using coding and problem solving.
+              </p>
+
+              <div class="career-graph">
+                <div class="graph-row"><span>Demand</span><div class="bar"><i id="demandBar" style="width:90%"></i></div></div>
+                <div class="graph-row"><span>Growth</span><div class="bar"><i id="growthBar" style="width:88%"></i></div></div>
+                <div class="graph-row"><span>Stability</span><div class="bar"><i id="stabilityBar" style="width:78%"></i></div></div>
+                <div class="graph-row"><span>Salary Scope</span><div class="bar"><i id="salaryBar" style="width:85%"></i></div></div>
+              </div>
+            </article>
+
+            <article class="glass-card">
+              <h3>Roadmap</h3>
+              <ol class="roadmap-list" id="careerRoadmap"></ol>
+            </article>
+          </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="page" id="quiz">
+          <div class="section-heading">
+            <h2>Self Assessment Quiz</h2>
+            <p>Psychometric analysis + career fitment analysis.</p>
+          </div>
+
+          <div class="card-grid two">
+            <form class="glass-card quiz-card" id="quizForm">
+              <h3>Section 1 — Psychometric Analysis (10 Questions)</h3>
+
+              <label>1. Which stream are you from?</label>
+              <select id="q1">
+                <option>MPC</option>
+                <option>BiPC</option>
+                <option>Commerce</option>
+                <option>Arts</option>
+                <option>Diploma / Polytechnic</option>
+                <option>Fashion / Design</option>
+                <option>Other</option>
+              </select>
+
+              <label>2. Which work do you enjoy most?</label>
+              <select id="q2">
+                <option>Technical problem solving</option>
+                <option>Helping people</option>
+                <option>Creative work</option>
+                <option>Business and money</option>
+              </select>
+
+              <label>3. Strongest interest area?</label>
+              <select id="q3">
+                <option>Technology</option>
+                <option>Medicine / Healthcare</option>
+                <option>Teaching / Social Science</option>
+                <option>Business / Entrepreneurship</option>
+              </select>
+
+              <label>4. Do you enjoy numbers and logic?</label>
+              <select id="q4">
+                <option>Very much</option>
+                <option>Sometimes</option>
+                <option>Not much</option>
+                <option>Only with help</option>
+              </select>
+
+              <label>5. Do you like creativity and visual work?</label>
+              <select id="q5">
+                <option>Yes, strongly</option>
+                <option>A little</option>
+                <option>Rarely</option>
+                <option>Depends on project</option>
+              </select>
+
+              <label>6. How comfortable are you speaking with others?</label>
+              <select id="q6">
+                <option>Very confident</option>
+                <option>Okay</option>
+                <option>Nervous</option>
+                <option>Need improvement</option>
+              </select>
+
+              <label>7. Do you prefer practical work or theory?</label>
+              <select id="q7">
+                <option>Practical</option>
+                <option>Theory</option>
+                <option>Both equally</option>
+                <option>Depends on subject</option>
+              </select>
+
+              <label>8. Self assessment</label>
+              <textarea id="q8" placeholder="Write about your personality, habits, and goals"></textarea>
+
+              <label>9. Strengths</label>
+              <textarea id="q9" placeholder="Example: hard work, creativity, patience"></textarea>
+
+              <label>10. Weaknesses</label>
+              <textarea id="q10" placeholder="Example: stage fear, procrastination, English speaking fear"></textarea>
+
+              <h3>Section 2 — Career Fitment Analysis (12 Questions)</h3>
+
+              <label>11. Which environment suits you?</label>
+              <select id="q11">
+                <option>Office / corporate</option>
+                <option>Hospital / service</option>
+                <option>Field / travel</option>
+                <option>Studio / creative</option>
+              </select>
+
+              <label>12. Government or private career?</label>
+              <select id="q12">
+                <option>Government</option>
+                <option>Private</option>
+                <option>Either is fine</option>
+                <option>Business / self-employment</option>
+              </select>
+
+              <label>13. What matters most to you?</label>
+              <select id="q13">
+                <option>Salary</option>
+                <option>Service to society</option>
+                <option>Creativity</option>
+                <option>Stability</option>
+              </select>
+
+              <label>14. Can you study for many years if needed?</label>
+              <select id="q14">
+                <option>Yes</option>
+                <option>No</option>
+                <option>Maybe</option>
+                <option>Only with support</option>
+              </select>
+
+              <label>15. Team work or independent work?</label>
+              <select id="q15">
+                <option>Team work</option>
+                <option>Independent work</option>
+                <option>Both</option>
+                <option>Small groups only</option>
+              </select>
+
+              <label>16. What impact do you want?</label>
+              <select id="q16">
+                <option>Innovation</option>
+                <option>Helping lives</option>
+                <option>Teaching / mentoring</option>
+                <option>Building business</option>
+              </select>
+
+              <label>17. Which subject do you enjoy most?</label>
+              <select id="q17">
+                <option>Maths</option>
+                <option>Biology</option>
+                <option>Economics / Commerce</option>
+                <option>Languages / Arts</option>
+              </select>
+
+              <label>18. How important is work-life balance?</label>
+              <select id="q18">
+                <option>Very important</option>
+                <option>Important</option>
+                <option>Can compromise</option>
+                <option>Depends on ambition</option>
+              </select>
+
+              <label>19. Are you open to learning digital skills?</label>
+              <select id="q19">
+                <option>Yes, definitely</option>
+                <option>Yes, slowly</option>
+                <option>Not much</option>
+                <option>Only basics</option>
+              </select>
+
+              <label>20. Do you want leadership roles in future?</label>
+              <select id="q20">
+                <option>Yes</option>
+                <option>No</option>
+                <option>Maybe later</option>
+                <option>Need more confidence</option>
+              </select>
+
+              <label>21. What is your dream career now?</label>
+              <input type="text" id="q21" placeholder="Type your dream career" />
+
+              <label>22. What support do you need most?</label>
+              <select id="q22">
+                <option>Roadmap guidance</option>
+                <option>Motivation</option>
+                <option>Skill development</option>
+                <option>Communication improvement</option>
+              </select>
+
+              <button type="submit" class="primary-btn full">Analyze My Career Fit</button>
+            </form>
+
+            <div class="glass-card result-card">
+              <h3>Summary and Recommendations</h3>
+              <div id="quizResult" class="result-placeholder">
+                Complete the self assessment quiz to get career recommendations and next steps.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="page" id="skills">
+          <div class="section-heading">
+            <h2>Career Skills</h2>
+            <p>Skills required to grow in your chosen career.</p>
+          </div>
+
+          <div class="glass-card skills-top-panel">
+            <div>
+              <h3>Choose a career to view required skills</h3>
+              <p class="muted-text">The list updates from your selected dream career.</p>
+            </div>
+            <button class="primary-btn" id="syncSkillsBtn">Sync With Selected Career</button>
+          </div>
+
+          <div class="card-grid two">
+            <article class="glass-card">
+              <h3 id="skillsCareerTitle">Skills for Software Engineer</h3>
+              <ul class="styled-list" id="skillsList"></ul>
+            </article>
+
+            <article class="glass-card">
+              <h3>Skill Development Plan</h3>
+              <ol class="roadmap-list">
+                <li>Understand basics and foundations.</li>
+                <li>Practice with mini projects.</li>
+                <li>Build communication and teamwork.</li>
+                <li>Create portfolio or proof of work.</li>
+                <li>Attend internships, workshops, and mentoring sessions.</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <!-- RESUME -->
+        <section class="page" id="resume">
+          <div class="section-heading">
+            <h2>Resume Builder</h2>
+            <p>Professional ATS-friendly resume builder with live preview.</p>
+          </div>
+
+          <div class="resume-layout">
+            <section class="glass-card resume-form-card">
+              <div class="resume-form-top">
+                <div>
+                  <h3>Build Your Resume</h3>
+                  <p class="muted-text">Recruiter-friendly and printable</p>
+                </div>
+                <div class="resume-toolbar">
+                  <select id="templateSelect">
+                    <option value="modern">Modern</option>
+                    <option value="classic">Classic</option>
+                  </select>
+                  <button class="secondary-btn" id="btnSave">Save</button>
+                  <button class="secondary-btn" id="btnLoad">Load</button>
+                  <button class="danger-btn" id="btnClear">Clear</button>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label>Full Name</label>
+                  <input id="fullName" placeholder="e.g., Sreeja Reddy" />
+                </div>
+                <div>
+                  <label>Target Role</label>
+                  <input id="role" placeholder="e.g., Frontend Intern" />
+                </div>
+                <div>
+                  <label>Email</label>
+                  <input id="email" placeholder="e.g., sreeja@gmail.com" />
+                </div>
+                <div>
+                  <label>Phone</label>
+                  <input id="phone" placeholder="e.g., +91 98765 43210" />
+                </div>
+                <div>
+                  <label>Location</label>
+                  <input id="location" placeholder="e.g., Hyderabad, India" />
+                </div>
+                <div>
+                  <label>LinkedIn / Portfolio</label>
+                  <input id="links" placeholder="e.g., linkedin.com/in/..." />
+                </div>
+              </div>
+
+              <label>Objective / Summary</label>
+              <textarea id="summary" placeholder="Motivated undergraduate seeking an internship in..."></textarea>
+
+              <label>Education</label>
+              <textarea id="education" placeholder="B.Tech (CSE) — ABC College — 2022–2026 — 8.5 CGPA"></textarea>
+
+              <label>Projects</label>
+              <textarea id="projects" placeholder="Resume Builder | HTML, CSS, JS&#10;• Built a live preview resume builder&#10;• Added PDF download and templates"></textarea>
+
+              <label>Experience / Internships</label>
+              <textarea id="experience" placeholder="Frontend Intern — XYZ — May 2025–Jul 2025&#10;• Improved UI responsiveness"></textarea>
+
+              <label>Skills (comma separated)</label>
+              <input id="skills" placeholder="HTML, CSS, JavaScript, React, Python, Communication" />
+
+              <label>Certifications</label>
+              <textarea id="certs" placeholder="• Java (NPTEL)&#10;• AWS Cloud Practitioner"></textarea>
+
+              <div class="resume-action-row">
+                <button class="primary-btn" id="btnPrint">Download PDF</button>
+              </div>
+            </section>
+
+            <section class="glass-card resume-preview-card">
+              <div class="resume-print-wrap">
+                <div id="resumePreview" class="resume modern">
+                  <div class="resume-inner">
+                    <div class="r-header">
+                      <div>
+                        <h3 class="r-name" id="pName">Your Name</h3>
+                        <p class="r-role" id="pRole">Target Role</p>
+                      </div>
+                      <div class="r-contact">
+                        <div id="pEmail">email@example.com</div>
+                        <div id="pPhone">+91 00000 00000</div>
+                        <div id="pLocation">City, Country</div>
+                        <div id="pLinks">linkedin.com/in/...</div>
+                      </div>
+                    </div>
+
+                    <div class="two-col">
+                      <div>
+                        <div class="r-section">
+                          <h4>Summary</h4>
+                          <p class="r-text" id="pSummary">Write a short objective/summary.</p>
+                        </div>
+                        <div class="r-section">
+                          <h4>Education</h4>
+                          <div id="pEducation" class="r-text muted-preview">Add your education details.</div>
+                        </div>
+                        <div class="r-section">
+                          <h4>Projects</h4>
+                          <div id="pProjects" class="r-text muted-preview">Add your projects with bullet points.</div>
+                        </div>
+                        <div class="r-section">
+                          <h4>Experience</h4>
+                          <div id="pExperience" class="r-text muted-preview">Add internships/experience if any.</div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div class="r-section">
+                          <h4>Skills</h4>
+                          <div id="pSkills" class="r-text muted-preview"></div>
+                        </div>
+                        <div class="r-section">
+                          <h4>Certifications</h4>
+                          <div id="pCerts" class="r-text muted-preview">Add certifications (optional).</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- ENGLISH -->
+        <section class="page" id="english">
+          <div class="section-heading">
+            <h2>FluentRise English</h2>
+            <p>Vocabulary, dictionary support, speaking help, and daily practice.</p>
+          </div>
+
+          <div class="card-grid two">
+            <article class="glass-card">
+              <h3>Vocabulary Builder</h3>
+              <div class="vocab-grid" id="vocabGrid"></div>
+            </article>
+
+            <article class="glass-card">
+              <h3>English Improvement Tips</h3>
+              <ul class="styled-list">
+                <li>Learn 5 new words every day and use them in sentences.</li>
+                <li>Read aloud for 10 minutes daily.</li>
+                <li>Watch simple English videos and repeat the lines.</li>
+                <li>Speak in English without fear of mistakes.</li>
+                <li>Write one short paragraph daily in English.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="card-grid two">
+            <article class="glass-card">
+              <h3>Useful Sentence Practice</h3>
+              <ul class="styled-list">
+                <li>My name is ___ and I am interested in ___.</li>
+                <li>I want to improve my skills and build my career.</li>
+                <li>I may be nervous, but I am learning every day.</li>
+                <li>Can you please explain this in a simple way?</li>
+                <li>I am confident that I can improve with practice.</li>
+              </ul>
+            </article>
+
+            <article class="glass-card">
+              <h3>Mini Dictionary</h3>
+              <div id="dictionaryList" class="dictionary-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONFIDENCE -->
+        <section class="page" id="confidence">
+          <div class="section-heading">
+            <h2>BoostUpConfidence</h2>
+            <p>Support for stage fear, stress, maths fear, subject fear, exam tension, and English speaking fear.</p>
+          </div>
+
+          <div class="card-grid three" id="confidenceGrid"></div>
+
+          <div class="glass-card confidence-box">
+            <h3>Today’s Confidence Message</h3>
+            <p id="confidenceMessage">You are not weak because you feel afraid. You are brave because you still continue.</p>
+            <button class="primary-btn" id="confidenceBtn">Boost Me</button>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
